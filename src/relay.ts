@@ -12,13 +12,8 @@ import { checkReqs } from "./tasks/sim";
 
 function convertArgsToHtml(): RelayPage[] {
   const metadata = Args.getMetadata(args);
-  const simPerms: ComponentHtml = {
-    type: "html",
-    data: checkReqs(false),
-  };
   const pages: RelayPage[] = [
     { page: metadata.options.defaultGroupName ?? "Options", components: [] },
-    { page: "Sim", components: [simPerms] },
   ];
 
   metadata.traverse(
@@ -64,6 +59,13 @@ function convertArgsToHtml(): RelayPage[] {
       p.components.splice(0, 0, html);
       p.components.push(meat);
     });
+
+  const simPerms: ComponentHtml = {
+    type: "html",
+    data: checkReqs(false),
+  };
+
+  pages.push({ page: "Sim", components: [simPerms] });
 
   return pages.filter((page) => page.components.length > 0);
 }
