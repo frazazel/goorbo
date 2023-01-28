@@ -98,6 +98,8 @@ function famValue(fam: Familiar, mob?: Monster) {
   switch (fam) {
     case $familiar`Grey Goose`:
       return myLevel() < args.targetlevel && $familiar`Grey Goose`.experience < 400 ? 6000 : 0;
+    case $familiar`Pocket Professor`:
+      return $familiar`Pocket Professor`.experience < 400 ? 6000 : 0;
     case $familiar`Red-Nosed Snapper`:
       if (mob && Snapper.getTrackedPhylum() && mob.phylum === Snapper.getTrackedPhylum())
         return (
@@ -131,9 +133,10 @@ export function meatFam() {
 }
 
 export function bestFam(mob?: Monster) {
-  const fams = $familiars`Grey Goose, Red-Nosed Snapper, Cookbookbat, Shorter-Order Cook`
-    .filter((fam) => have(fam))
-    .sort((a, b) => famValue(b, mob) - famValue(a, mob));
+  const fams =
+    $familiars`Grey Goose, Pocket Professor, Red-Nosed Snapper, Cookbookbat, Shorter-Order Cook`
+      .filter((fam) => have(fam))
+      .sort((a, b) => famValue(b, mob) - famValue(a, mob));
   return fams.find((fam) => have(fam));
 }
 
