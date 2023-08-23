@@ -241,7 +241,7 @@ export function AftercoreQuest(): Quest {
           price: 1000,
         })),
         prepare: () => {
-          restoreHp(0.9 * myHp());
+          restoreHp(0.9 * myMaxhp());
           if (have($skill`Blood Bubble`) && !have($effect`Blood Bubble`))
             useSkill($skill`Blood Bubble`);
         },
