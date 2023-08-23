@@ -212,7 +212,8 @@ export function AftercoreQuest(): Quest {
           if (!canAdventure($location`The Shore, Inc. Travel Agency`))
             retrieveItem($item`bitchin' meatcar`);
         },
-        do: $location`The Shore, Inc. Travel Agency`,
+        do: () =>
+          myAdventures() >= 3 ? $location`The Shore, Inc. Travel Agency` : $location`Noob Cave`,
         post: () => {
           if (handlingChoice()) visitUrl("main.php");
           if (have($effect`Beaten Up`)) uneffect($effect`Beaten Up`);

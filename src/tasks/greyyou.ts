@@ -268,7 +268,8 @@ export function GyouQuests(): Quest[] {
             1474: () => (get("_juneCleaverSkips") < 5 ? 4 : 2), //Delicious Sprouts
             1475: 1, //Hypnotic Master
           },
-          do: $location`The Shore, Inc. Travel Agency`,
+          do: () =>
+            myAdventures() >= 3 ? $location`The Shore, Inc. Travel Agency` : $location`Noob Cave`,
           post: () => {
             if (handlingChoice()) visitUrl("main.php");
             if (have($effect`Beaten Up`)) {
