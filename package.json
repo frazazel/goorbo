@@ -1,7 +1,7 @@
 {
   "name": "goorbo",
-  "version": "0.6.5",
-  "description": "A half-gloop script that does garbo, optimized for low-shiny accounts.",
+  "version": "0.6.6",
+  "description": "A gloop script that spends farming turns with garbo, and aids with perming skills.",
   "main": "scripts/goorbo/goorbo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
