@@ -6,7 +6,7 @@ import { toMoonSign } from "./tasks/utils";
 
 export const args = Args.create(
   "goorbo",
-  `Written by frazazel (ign: SketchySolid #422389). This is a full-day script for half-glooping. It aims to be a single-press script that will take you through your Aftercore and Grey You legs, collecting fat loot tokens, getting a Steel Liver, and leveling up to level 13 before running garbo. It chooses a class for you to learn guild skills, and to perm learned skills upon ascension.`,
+  `Written by frazazel #422389 (previous ign: SketchySolid). This is a full-day script for glooping. It aims to be a single-press script that will take you through your Aftercore and Grey You legs, collecting fat loot tokens, getting a Steel Liver, and leveling up to level 13 before running garbo. It chooses a class for you to learn guild skills, and to perm learned skills upon ascension.`,
   {
     //alternate-run flags
     version: Args.flag({
