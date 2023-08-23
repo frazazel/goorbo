@@ -25,8 +25,7 @@ export function setClass(property: string, value: Class): void {
 export const baseClasses = $classes`Seal Clubber, Turtle Tamer, Pastamancer, Sauceror, Disco Bandit, Accordion Thief`;
 export const gnomeSkills = $skills`Torso Awareness, Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding`;
 const permBlockList = [
-  ...$skills`CLEESH, Chronic Indigestion, Lightning Bolt`,
-  // Lightning Bolt doesn't play nice, because there are 2 skills with that name. It's also a bad skill.
+  ...$skills`CLEESH, Chronic Indigestion`,
   ...Skill.all().filter((sk) =>
     Item.all().find((it) => it.skill === sk && it.reusable && have(it))
   ),
@@ -82,7 +81,7 @@ export function permOptions(planning: boolean): Skill[][] {
     ? defaultPermList().map((sks) =>
         sks.filter(
           (sk) =>
-            !(sk.name in getPermedSkills()) &&
+            !(sk.toString() in getPermedSkills()) &&
             (have(sk) ||
               (gnomeSkills.includes(sk) && gnomadsAvailable()) ||
               (classChoices.includes(sk.class) && sk.level > 0))
@@ -91,7 +90,7 @@ export function permOptions(planning: boolean): Skill[][] {
     : defaultPermList().map((sks) =>
         sks.filter(
           (sk) =>
-            !(sk.name in getPermedSkills() || ctPerms.includes(sk)) &&
+            !(sk.toString() in getPermedSkills() || ctPerms.includes(sk)) &&
             (gnomeSkills.includes(sk) || (classChoices.includes(sk.class) && sk.level >= 0))
         )
       ); //for next run, exclude all skills that we are planning to perm this run, and allow all guild and gnome skills.
