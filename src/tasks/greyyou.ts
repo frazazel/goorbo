@@ -356,7 +356,8 @@ export function GyouQuests(): Quest[] {
             .macro(Macro.skill($skill`Infinite Loop`), getTodaysHolidayWanderers())
             .macro(Macro.tryItem($item`DNA extraction syringe`))
             .macro(
-              Macro.tryItem($item`porquoise-handled sixgun`)
+              Macro.tryItem($item`train whistle`)
+                .tryItem($item`porquoise-handled sixgun`)
                 .trySkill($skill`Sing Along`)
                 .attack()
                 .repeat()
@@ -421,7 +422,8 @@ export function GyouQuests(): Quest[] {
               $monsters`Copperhead Club bartender, fan dancer, ninja dressed as a waiter, waiter dressed as a ninja`
             )
             .macro(
-              Macro.tryItem($item`porquoise-handled sixgun`)
+              Macro.tryItem($item`train whistle`)
+                .tryItem($item`porquoise-handled sixgun`)
                 .trySkill($skill`Sing Along`)
                 .attack()
                 .repeat()
@@ -468,7 +470,8 @@ export function GyouQuests(): Quest[] {
           combat: new CombatStrategy()
             .macro(Macro.skill($skill`Infinite Loop`), getTodaysHolidayWanderers())
             .macro(
-              Macro.tryItem($item`porquoise-handled sixgun`)
+              Macro.tryItem($item`train whistle`)
+                .tryItem($item`porquoise-handled sixgun`)
                 .trySkill($skill`Double Nanovision`)
                 .attack()
                 .repeat()
@@ -502,7 +505,8 @@ export function GyouQuests(): Quest[] {
           combat: new CombatStrategy()
             .macro(Macro.skill($skill`Infinite Loop`), getTodaysHolidayWanderers())
             .macro(
-              Macro.tryItem($item`porquoise-handled sixgun`)
+              Macro.tryItem($item`train whistle`)
+                .tryItem($item`porquoise-handled sixgun`)
                 .trySkill($skill`Double Nanovision`)
                 .repeat()
             ),
@@ -535,7 +539,8 @@ export function GyouQuests(): Quest[] {
           combat: new CombatStrategy()
             .macro(Macro.skill($skill`Infinite Loop`), getTodaysHolidayWanderers())
             .macro(() =>
-              Macro.trySkill($skill`Bowl Straight Up`)
+              Macro.tryItem($item`train whistle`)
+                .trySkill($skill`Bowl Straight Up`)
                 .trySkill($skill`Sing Along`)
                 .trySkill($skill`Extract Jelly`)
                 .tryItem($item`porquoise-handled sixgun`)
@@ -717,6 +722,7 @@ export function GyouQuests(): Quest[] {
                 !get("_dailyDungeonMalwareUsed"),
                 Macro.tryItem($item`daily dungeon malware`)
               )
+                .tryItem($item`train whistle`)
                 .tryItem($item`porquoise-handled sixgun`)
                 .attack()
                 .repeat()
@@ -756,6 +762,7 @@ export function GyouQuests(): Quest[] {
           }),
           combat: new CombatStrategy().macro(
             Macro.trySkill($skill`Curse of Weaksauce`)
+              .tryItem($item`train whistle`)
               .tryItem($item`porquoise-handled sixgun`)
               .attack()
               .repeat()
@@ -793,6 +800,7 @@ export function GyouQuests(): Quest[] {
           }),
           combat: new CombatStrategy().macro(
             Macro.trySkill($skill`Curse of Weaksauce`)
+              .tryItem($item`train whistle`)
               .tryItem($item`porquoise-handled sixgun`)
               .attack()
               .repeat()
@@ -938,6 +946,7 @@ export function GyouQuests(): Quest[] {
             .macro(Macro.trySkill($skill`Curse of Weaksauce`), getTodaysHolidayWanderers())
             .macro(() =>
               Macro.step("pickpocket")
+                .tryItem($item`train whistle`)
                 .trySkill($skill`Bowl Straight Up`)
                 .trySkill($skill`Sing Along`)
                 .tryItem($item`porquoise-handled sixgun`)

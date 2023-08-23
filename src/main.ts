@@ -15,6 +15,10 @@ export function main(command?: string): void {
     Args.showHelp(args);
     return;
   }
+  // if (args.profits) {
+  //   print("work in progress");
+  //   return;
+  // }
   if (args.simperms) {
     checkPerms();
     printPermPlan();

@@ -14,6 +14,11 @@ export const args = Args.create(
       default: false,
       setting: "",
     }),
+    // profits: Args.flag({
+    //   help: "If set, displays current session's profits, then return without taking any actions.",
+    //   default: false,
+    //   setting: "",
+    // }),
     sim: Args.flag({
       help: "If set, see the recommended items and skills, then return without taking any actions.",
       default: false,

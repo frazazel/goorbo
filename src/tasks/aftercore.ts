@@ -163,10 +163,11 @@ export function AftercoreQuest(): Quest {
         },
         do: $location`The Hole in the Sky`,
         combat: new CombatStrategy()
-          .macro(Macro.skill($skill`Infinite Loop`), getTodaysHolidayWanderers())
+          .macro(Macro.skill($skill`Curse of Weaksauce`), getTodaysHolidayWanderers())
           .macro(Macro.tryItem($item`DNA extraction syringe`))
           .macro(
-            Macro.tryItem($item`porquoise-handled sixgun`)
+            Macro.tryItem($item`train whistle`)
+              .tryItem($item`porquoise-handled sixgun`)
               .trySkill($skill`Sing Along`)
               .attack()
               .repeat()
@@ -306,6 +307,7 @@ export function AftercoreQuest(): Quest {
               !get("_dailyDungeonMalwareUsed"),
               Macro.tryItem($item`daily dungeon malware`)
             )
+            .tryItem($item`train whistle`)
             .tryItem($item`porquoise-handled sixgun`)
             .trySkill($skill`Saucestorm`)
             .attack()
@@ -489,6 +491,7 @@ export function AftercoreQuest(): Quest {
           .macro(Macro.trySkill($skill`Curse of Weaksauce`), getTodaysHolidayWanderers())
           .macro(() =>
             Macro.step("pickpocket")
+              .tryItem($item`train whistle`)
               .trySkill($skill`Bowl Straight Up`)
               .trySkill($skill`Sing Along`)
               .tryItem($item`porquoise-handled sixgun`)
