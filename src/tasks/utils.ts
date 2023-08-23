@@ -93,7 +93,9 @@ export function maxBase(): string {
     garboValue($item`FunFunds™`) / 20 + 5
   } bonus lucky gold ring, 250 bonus Mr. Cheeng's spectacles, ${
     0.4 * get("valueOfAdventure")
-  } bonus mafia thumb ring, 10 bonus tiny stillsuit`;
+  } bonus mafia thumb ring, ${
+    get("sweat") + get("_sweatOutSomeBoozeUsed") * 25 < 75 ? "250 bonus designer sweatpants," : ""
+  } 100 bonus Pantsgiving, 10 bonus tiny stillsuit`;
 }
 
 function famValue(fam: Familiar, mob?: Monster) {
