@@ -7138,7 +7138,19 @@ function checkPerms() {
   return out;
 }
 ;// CONCATENATED MODULE: ./src/tasks/perm.ts
-var perm_templateObject, perm_templateObject2, perm_templateObject3, perm_templateObject4, perm_templateObject5, perm_templateObject6, perm_templateObject7, perm_templateObject8, perm_templateObject9, perm_templateObject10, perm_templateObject11, perm_templateObject12, perm_templateObject13, perm_templateObject14, perm_templateObject15, perm_templateObject16;
+var perm_templateObject, perm_templateObject2, perm_templateObject3, perm_templateObject4, perm_templateObject5, perm_templateObject6, perm_templateObject7, perm_templateObject8, perm_templateObject9, perm_templateObject10, perm_templateObject11, perm_templateObject12, perm_templateObject13, perm_templateObject14, perm_templateObject15;
+
+function perm_toConsumableArray(arr) { return perm_arrayWithoutHoles(arr) || perm_iterableToArray(arr) || perm_unsupportedIterableToArray(arr) || perm_nonIterableSpread(); }
+
+function perm_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function perm_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return perm_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return perm_arrayLikeToArray(o, minLen); }
+
+function perm_iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function perm_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return perm_arrayLikeToArray(arr); }
+
+function perm_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function perm_taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -7154,17 +7166,17 @@ function setClass(property, value) {
 }
 var baseClasses = $classes(perm_templateObject || (perm_templateObject = perm_taggedTemplateLiteral(["Seal Clubber, Turtle Tamer, Pastamancer, Sauceror, Disco Bandit, Accordion Thief"])));
 var gnomeSkills = $skills(perm_templateObject2 || (perm_templateObject2 = perm_taggedTemplateLiteral(["Torso Awareness, Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding"])));
-var permBlockList = $skills(perm_templateObject3 || (perm_templateObject3 = perm_taggedTemplateLiteral(["CLEESH, Chronic Indigestion"])));
+var permBlockList = [].concat(perm_toConsumableArray($skills(perm_templateObject3 || (perm_templateObject3 = perm_taggedTemplateLiteral(["CLEESH, Chronic Indigestion"])))), perm_toConsumableArray(external_kolmafia_.Skill.all().filter(sk => external_kolmafia_.Item.all().find(it => it.skill === sk && it.reusable && lib_have(it)))));
 var permTiers = ["Tier 0 - All permable non-guild, non-gnome skills (never target these, but perm them if you know them)", "Tier 1 - Needed for the script to run at its best", "Tier 2 - Great skills", "Tier 3 - Good skills", "Tier 4 - QoL skills", "Tier 5 - Ascension-relevant skills", "Tier 6 - Skills with non-zero utility", "Tier 7 - All other guild skills", "Tier 8 - Otherwise-blocked skills"];
 var permList = [//tier 0
-$skills(perm_templateObject4 || (perm_templateObject4 = perm_taggedTemplateLiteral([""]))).filter(sk => sk.permable && sk.level === -1 && !permBlockList.includes(sk) && !gnomeSkills.includes(sk)), //tier 1
-$skills(perm_templateObject5 || (perm_templateObject5 = perm_taggedTemplateLiteral(["Curse of Weaksauce, Itchy Curse Finger, Torso Awareness, Cannelloni Cocoon"]))), //tier 2
-$skills(perm_templateObject6 || (perm_templateObject6 = perm_taggedTemplateLiteral(["Nimble Fingers, Amphibian Sympathy, Leash of Linguini, Thief Among the Honorable, Expert Panhandling, Disco Leer, Wrath of the Wolverine, Furious Wallop, Five Finger Discount, Double-Fisted Skull Smashing, Impetuous Sauciness, Tao of the Terrapin, Saucestorm"]))), //tier 3
-$skills(perm_templateObject7 || (perm_templateObject7 = perm_taggedTemplateLiteral(["Tongue of the Walrus, Mad Looting Skillz, Smooth Movement, Musk of the Moose, The Polka of Plenty, The Sonata of Sneakiness, Carlweather's Cantata of Confrontation, Mariachi Memory"]))), //tier 4
-$skills(perm_templateObject8 || (perm_templateObject8 = perm_taggedTemplateLiteral(["Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding, Ambidextrous Funkslinging, The Long View, Wisdom of the Elder Tortoises, Inner Sauce, Springy Fusilli, Overdeveloped Sense of Self Preservation, Pulverize"]))), //tier 5
-$skills(perm_templateObject9 || (perm_templateObject9 = perm_taggedTemplateLiteral(["Pastamastery, Advanced Cocktailcrafting, The Ode to Booze, The Magical Mojomuscular Melody, Advanced Saucecrafting, Saucemaven, The Way of Sauce, Fat Leon's Phat Loot Lyric, Empathy of the Newt, The Moxious Madrigal, Stuffed Mortar Shell, Flavour of Magic, Elemental Saucesphere, Spirit of Ravioli, Lunging Thrust-Smack, Entangling Noodles, Cold-Blooded Fearlessness, Northern Exposure, Diminished Gag Reflex, Tolerance of the Kitchen, Heart of Polyester, Irrepressible Spunk, Saucegeyser, Scarysauce, Ire of the Orca, Batter Up!, Disco Fever, Rage of the Reindeer, Testudinal Teachings, Disco Nap, Adventurer of Leisure, Armorcraftiness"]))), //tier 6
-$skills(perm_templateObject10 || (perm_templateObject10 = perm_taggedTemplateLiteral(["Superhuman Cocktailcrafting, Transcendental Noodlecraft, Super-Advanced Meatsmithing, Patient Smile, Wry Smile, Knowing Smile, Aloysius' Antiphon of Aptitude, Pride of the Puffin, Ur-Kel's Aria of Annoyance, Sensitive Fingers, Master Accordion Master Thief, Skin of the Leatherback, Hide of the Walrus, Astral Shell, Ghostly Shell, Subtle and Quick to Anger, Master Saucier, Hero of the Half-Shell, Shield of the Pastalord, Saucy Salve, The Power Ballad of the Arrowsmith, Jalape\xF1o Saucesphere, Claws of the Walrus, Shell Up, Brawnee's Anthem of Absorption, Reptilian Fortitude, The Psalm of Pointiness, Spiky Shell, Stiff Upper Lip, Blubber Up, Disco Smirk, Blood Sugar Sauce Magic, Cletus's Canticle of Celerity, Suspicious Gaze, Icy Glare, Dirge of Dreadfulness, Snarl of the Timberwolf, Stevedave's Shanty of Superiority, Northern Explosion, That's Not a Knife"]))), //tier 7
-$skills(perm_templateObject11 || (perm_templateObject11 = perm_taggedTemplateLiteral([""]))).filter(sk => sk.permable && sk.level >= 0), //tier 8
+external_kolmafia_.Skill.all().filter(sk => sk.permable && sk.level === -1 && !permBlockList.includes(sk) && !gnomeSkills.includes(sk)), //tier 1
+$skills(perm_templateObject4 || (perm_templateObject4 = perm_taggedTemplateLiteral(["Curse of Weaksauce, Itchy Curse Finger, Torso Awareness, Cannelloni Cocoon"]))), //tier 2
+$skills(perm_templateObject5 || (perm_templateObject5 = perm_taggedTemplateLiteral(["Nimble Fingers, Amphibian Sympathy, Leash of Linguini, Thief Among the Honorable, Expert Panhandling, Disco Leer, Wrath of the Wolverine, Furious Wallop, Five Finger Discount, Double-Fisted Skull Smashing, Impetuous Sauciness, Tao of the Terrapin, Saucestorm"]))), //tier 3
+$skills(perm_templateObject6 || (perm_templateObject6 = perm_taggedTemplateLiteral(["Tongue of the Walrus, Mad Looting Skillz, Smooth Movement, Musk of the Moose, The Polka of Plenty, The Sonata of Sneakiness, Carlweather's Cantata of Confrontation, Mariachi Memory"]))), //tier 4
+$skills(perm_templateObject7 || (perm_templateObject7 = perm_taggedTemplateLiteral(["Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding, Ambidextrous Funkslinging, The Long View, Wisdom of the Elder Tortoises, Inner Sauce, Springy Fusilli, Overdeveloped Sense of Self Preservation, Pulverize"]))), //tier 5
+$skills(perm_templateObject8 || (perm_templateObject8 = perm_taggedTemplateLiteral(["Pastamastery, Advanced Cocktailcrafting, The Ode to Booze, The Magical Mojomuscular Melody, Advanced Saucecrafting, Saucemaven, The Way of Sauce, Fat Leon's Phat Loot Lyric, Empathy of the Newt, The Moxious Madrigal, Stuffed Mortar Shell, Flavour of Magic, Elemental Saucesphere, Spirit of Ravioli, Lunging Thrust-Smack, Entangling Noodles, Cold-Blooded Fearlessness, Northern Exposure, Diminished Gag Reflex, Tolerance of the Kitchen, Heart of Polyester, Irrepressible Spunk, Saucegeyser, Scarysauce, Ire of the Orca, Batter Up!, Disco Fever, Rage of the Reindeer, Testudinal Teachings, Disco Nap, Adventurer of Leisure, Armorcraftiness"]))), //tier 6
+$skills(perm_templateObject9 || (perm_templateObject9 = perm_taggedTemplateLiteral(["Superhuman Cocktailcrafting, Transcendental Noodlecraft, Super-Advanced Meatsmithing, Patient Smile, Wry Smile, Knowing Smile, Aloysius' Antiphon of Aptitude, Pride of the Puffin, Ur-Kel's Aria of Annoyance, Sensitive Fingers, Master Accordion Master Thief, Skin of the Leatherback, Hide of the Walrus, Astral Shell, Ghostly Shell, Subtle and Quick to Anger, Master Saucier, Hero of the Half-Shell, Shield of the Pastalord, Saucy Salve, The Power Ballad of the Arrowsmith, Jalape\xF1o Saucesphere, Claws of the Walrus, Shell Up, Brawnee's Anthem of Absorption, Reptilian Fortitude, The Psalm of Pointiness, Spiky Shell, Stiff Upper Lip, Blubber Up, Disco Smirk, Blood Sugar Sauce Magic, Cletus's Canticle of Celerity, Suspicious Gaze, Icy Glare, Dirge of Dreadfulness, Snarl of the Timberwolf, Stevedave's Shanty of Superiority, Northern Explosion, That's Not a Knife"]))), //tier 7
+$skills(perm_templateObject10 || (perm_templateObject10 = perm_taggedTemplateLiteral([""]))).filter(sk => sk.permable && sk.level >= 0), //tier 8
 permBlockList];
 var defaultPermList = () => permList.slice(0, args_args.permtier + 1);
 function permOptions(planning) {
@@ -7172,15 +7184,15 @@ function permOptions(planning) {
   var classChoices = planning ? baseClasses : baseClasses.includes((0,external_kolmafia_.myClass)()) ? [(0,external_kolmafia_.myClass)()] : [perm_getClass("goorboNextClass", args_args.defaultclass)];
   var ctPerms = planning ? targetPerms(false) : [];
   return !planning //current run
-  ? defaultPermList().map(sks => sks.filter(sk => !(sk.name in (0,external_kolmafia_.getPermedSkills)()) && (lib_have(sk) || gnomeSkills.includes(sk) && (0,external_kolmafia_.gnomadsAvailable)() || classChoices.includes(sk.class) && sk.level > 0))) //for current run, include skills that we know or that we can train in this run.
-  : defaultPermList().map(sks => sks.filter(sk => !(sk.name in (0,external_kolmafia_.getPermedSkills)() || ctPerms.includes(sk)) && (gnomeSkills.includes(sk) || classChoices.includes(sk.class) && sk.level >= 0))); //for next run, exclude all skills that we are planning to perm this run, and allow all guild and gnome skills.
+  ? defaultPermList().map(sks => sks.filter(sk => !(sk.toString() in (0,external_kolmafia_.getPermedSkills)()) && (lib_have(sk) || gnomeSkills.includes(sk) && (0,external_kolmafia_.gnomadsAvailable)() || classChoices.includes(sk.class) && sk.level > 0))) //for current run, include skills that we know or that we can train in this run.
+  : defaultPermList().map(sks => sks.filter(sk => !(sk.toString() in (0,external_kolmafia_.getPermedSkills)() || ctPerms.includes(sk)) && (gnomeSkills.includes(sk) || classChoices.includes(sk.class) && sk.level >= 0))); //for next run, exclude all skills that we are planning to perm this run, and allow all guild and gnome skills.
 }
 function permTier(planning) {
   // the highest tier of unpermed skills available. Returns 0 if no non-tier 0 skills are available
   return permOptions(planning).slice(1).findIndex(sks => sks.length !== 0) + 1;
 }
 function expectedKarma(planning) {
-  return (!planning ? property_get("bankedKarma") + ((0,external_kolmafia_.inHardcore)() ? 200 : (0,external_kolmafia_.inCasual)() ? 0 : 100) : expectedKarma(false) - targetPerms(false).length * 100 + ((0,external_kolmafia_.inHardcore)() ? 200 : (0,external_kolmafia_.inCasual)() ? 0 : 100)) + (args_args.astralpet === template_string_$item(perm_templateObject12 || (perm_templateObject12 = perm_taggedTemplateLiteral(["none"]))) ? 10 : 0);
+  return (!planning ? property_get("bankedKarma") + ((0,external_kolmafia_.inHardcore)() ? 200 : (0,external_kolmafia_.inCasual)() ? 0 : 100) : expectedKarma(false) - targetPerms(false).length * 100 + ((0,external_kolmafia_.inHardcore)() ? 200 : (0,external_kolmafia_.inCasual)() ? 0 : 100)) + (args_args.astralpet === template_string_$item(perm_templateObject11 || (perm_templateObject11 = perm_taggedTemplateLiteral(["none"]))) ? 10 : 0);
 }
 
 function shouldBankKarma(planning) {
@@ -7189,12 +7201,12 @@ function shouldBankKarma(planning) {
 }
 
 function targetClass(planning) {
-  if ((0,external_kolmafia_.myClass)() === template_string_$class(perm_templateObject13 || (perm_templateObject13 = perm_taggedTemplateLiteral(["Grey Goo"])))) {
-    if (args_args["class"] && args_args["class"] !== template_string_$class(perm_templateObject14 || (perm_templateObject14 = perm_taggedTemplateLiteral(["none"])))) return args_args["class"];
+  if ((0,external_kolmafia_.myClass)() === template_string_$class(perm_templateObject12 || (perm_templateObject12 = perm_taggedTemplateLiteral(["Grey Goo"])))) {
+    if (args_args["class"] && args_args["class"] !== template_string_$class(perm_templateObject13 || (perm_templateObject13 = perm_taggedTemplateLiteral(["none"])))) return args_args["class"];
     return perm_getClass("goorboNextClass", args_args.defaultclass);
   }
 
-  if (planning && args_args["class"] && args_args["class"] !== template_string_$class(perm_templateObject15 || (perm_templateObject15 = perm_taggedTemplateLiteral(["none"])))) return args_args["class"]; //can't access permed skill status in grey goo
+  if (planning && args_args["class"] && args_args["class"] !== template_string_$class(perm_templateObject14 || (perm_templateObject14 = perm_taggedTemplateLiteral(["none"])))) return args_args["class"]; //can't access permed skill status in grey goo
 
   if (shouldBankKarma(planning)) return args_args.defaultclass; //if we will be banking skills
 
@@ -7211,7 +7223,7 @@ function targetPerms(planning) {
     : []; //don't plan to perm anything next run if we plan to bank karma
 
   var qty = Math.min(maxQty, tier + Math.ceil(Math.sqrt(Math.max(0, maxQty - tier))));
-  var tClass = planning ? targetClass(true) : template_string_$class(perm_templateObject16 || (perm_templateObject16 = perm_taggedTemplateLiteral(["none"])));
+  var tClass = planning ? targetClass(true) : template_string_$class(perm_templateObject15 || (perm_templateObject15 = perm_taggedTemplateLiteral(["none"])));
   return (!planning ? pOptions.flat().filter(sk => !gnomeSkills.includes(sk) || (0,external_kolmafia_.gnomadsAvailable)()) : //filter out gnome skills if not available (non-targetClass skills filtered out in permOptions already, for current run)
   pOptions.flat().filter(sk => sk.class === tClass || gnomeSkills.includes(sk)) //filter out non-targetClass skills
   ).slice(0, qty);
@@ -7521,7 +7533,7 @@ function printProfits(records) {
   printProfitSegment("Total", profits_sum(records, () => true), "black");
 }
 ;// CONCATENATED MODULE: ./src/tasks/utils.ts
-var utils_templateObject, utils_templateObject2, utils_templateObject3, utils_templateObject4, utils_templateObject5, utils_templateObject6, utils_templateObject7, utils_templateObject8, utils_templateObject9, utils_templateObject10, utils_templateObject11, utils_templateObject12, utils_templateObject13, utils_templateObject14, utils_templateObject15, utils_templateObject16, utils_templateObject17, utils_templateObject18, utils_templateObject19, utils_templateObject20, utils_templateObject21, utils_templateObject22, utils_templateObject23, utils_templateObject24, utils_templateObject25, utils_templateObject26, utils_templateObject27, utils_templateObject28, utils_templateObject29, utils_templateObject30, utils_templateObject31, utils_templateObject32, utils_templateObject33, utils_templateObject34, utils_templateObject35, utils_templateObject36, utils_templateObject37, utils_templateObject38, utils_templateObject39, utils_templateObject40;
+var utils_templateObject, utils_templateObject2, utils_templateObject3, utils_templateObject4, utils_templateObject5, utils_templateObject6, utils_templateObject7, utils_templateObject8, utils_templateObject9, utils_templateObject10, utils_templateObject11, utils_templateObject12, utils_templateObject13, utils_templateObject14, utils_templateObject15, utils_templateObject16, utils_templateObject17, utils_templateObject18, utils_templateObject19, utils_templateObject20, utils_templateObject21, utils_templateObject22, utils_templateObject23, utils_templateObject24, utils_templateObject25, utils_templateObject26, utils_templateObject27, utils_templateObject28, utils_templateObject29, utils_templateObject30, utils_templateObject31, utils_templateObject32, utils_templateObject33, utils_templateObject34, utils_templateObject35, utils_templateObject36, utils_templateObject37, utils_templateObject38, utils_templateObject39;
 
 function tasks_utils_toConsumableArray(arr) { return tasks_utils_arrayWithoutHoles(arr) || tasks_utils_iterableToArray(arr) || tasks_utils_unsupportedIterableToArray(arr) || tasks_utils_nonIterableSpread(); }
 
@@ -7556,71 +7568,68 @@ function noML() {
   return "-ml, ".concat(minusMLItems.filter(it => have(it)).map(it => "-equip ".concat(it.name)).join(", "));
 }
 function maxBase() {
-  return "175 bonus June Cleaver, ".concat(garboValue($item(utils_templateObject2 || (utils_templateObject2 = utils_taggedTemplateLiteral(["FunFunds\u2122"])))) / 20 + 5, " bonus lucky gold ring, 250 bonus Mr. Cheeng's spectacles, ").concat(0.4 * get("valueOfAdventure"), " bonus mafia thumb ring, 10 bonus tiny stillsuit");
+  return "175 bonus June Cleaver, ".concat(garboValue($item(utils_templateObject2 || (utils_templateObject2 = utils_taggedTemplateLiteral(["FunFunds\u2122"])))) / 20 + 5, " bonus lucky gold ring, 250 bonus Mr. Cheeng's spectacles, ").concat(0.4 * get("valueOfAdventure"), " bonus mafia thumb ring, ").concat(get("sweat") + get("_sweatOutSomeBoozeUsed") * 25 < 75 ? "250 bonus designer sweatpants," : "", " 100 bonus Pantsgiving, 10 bonus tiny stillsuit");
 }
 
 function famValue(fam, mob) {
   switch (fam) {
     case $familiar(utils_templateObject3 || (utils_templateObject3 = utils_taggedTemplateLiteral(["Grey Goose"]))):
-      return myLevel() < args.targetlevel && $familiar(utils_templateObject4 || (utils_templateObject4 = utils_taggedTemplateLiteral(["Grey Goose"]))).experience < 400 ? 6000 : 0;
+      return (myClass() === $class(utils_templateObject4 || (utils_templateObject4 = utils_taggedTemplateLiteral(["Grey Goo"]))) || myLevel() < args.targetlevel) && $familiar(utils_templateObject5 || (utils_templateObject5 = utils_taggedTemplateLiteral(["Grey Goose"]))).experience < 400 ? 6000 : 0;
 
-    case $familiar(utils_templateObject5 || (utils_templateObject5 = utils_taggedTemplateLiteral(["Red-Nosed Snapper"]))):
-      if (mob && Snapper.getTrackedPhylum() && mob.phylum === Snapper.getTrackedPhylum()) return garboValue(Snapper.phylumItem.get(Snapper.getTrackedPhylum() || $phylum(utils_templateObject6 || (utils_templateObject6 = utils_taggedTemplateLiteral(["none"])))) || $item(utils_templateObject7 || (utils_templateObject7 = utils_taggedTemplateLiteral(["none"])))) / 11;
+    case $familiar(utils_templateObject6 || (utils_templateObject6 = utils_taggedTemplateLiteral(["Red-Nosed Snapper"]))):
+      if (mob && Snapper.getTrackedPhylum() && mob.phylum === Snapper.getTrackedPhylum()) return garboValue(Snapper.phylumItem.get(Snapper.getTrackedPhylum() || $phylum(utils_templateObject7 || (utils_templateObject7 = utils_taggedTemplateLiteral(["none"])))) || $item(utils_templateObject8 || (utils_templateObject8 = utils_taggedTemplateLiteral(["none"])))) / 11;
       return 0;
 
-    case $familiar(utils_templateObject8 || (utils_templateObject8 = utils_taggedTemplateLiteral(["Cookbookbat"]))):
-      return $items(utils_templateObject9 || (utils_templateObject9 = utils_taggedTemplateLiteral([""]))).find(it => it.name.indexOf("Recipe of Before Yore") >= 0 && have(it)) ? garboAverageValue.apply(void 0, tasks_utils_toConsumableArray($items(utils_templateObject10 || (utils_templateObject10 = utils_taggedTemplateLiteral(["Yeast of Boris, Vegetable of Jarlsberg, St. Sneaky Pete's Whey"]))))) * (3.0 / 11) : 5000;
+    case $familiar(utils_templateObject9 || (utils_templateObject9 = utils_taggedTemplateLiteral(["Cookbookbat"]))):
+      return $items(utils_templateObject10 || (utils_templateObject10 = utils_taggedTemplateLiteral([""]))).find(it => it.name.indexOf("Recipe of Before Yore") >= 0 && have(it)) ? garboAverageValue.apply(void 0, tasks_utils_toConsumableArray($items(utils_templateObject11 || (utils_templateObject11 = utils_taggedTemplateLiteral(["Yeast of Boris, Vegetable of Jarlsberg, St. Sneaky Pete's Whey"]))))) * (3.0 / 11) : 5000;
 
-    case $familiar(utils_templateObject11 || (utils_templateObject11 = utils_taggedTemplateLiteral(["Shorter-Order Cook"]))):
-      return garboAverageValue.apply(void 0, tasks_utils_toConsumableArray($items(utils_templateObject12 || (utils_templateObject12 = utils_taggedTemplateLiteral(["short white, short beer, short glass of water, short stack of pancakes, short stick of butter"]))))) / 11;
+    case $familiar(utils_templateObject12 || (utils_templateObject12 = utils_taggedTemplateLiteral(["Shorter-Order Cook"]))):
+      return garboAverageValue.apply(void 0, tasks_utils_toConsumableArray($items(utils_templateObject13 || (utils_templateObject13 = utils_taggedTemplateLiteral(["short white, short beer, short glass of water, short stack of pancakes, short stick of butter"]))))) / 11;
   }
 
   return 0;
 }
 
 function meatFam() {
-  return $familiars(utils_templateObject13 || (utils_templateObject13 = utils_taggedTemplateLiteral(["Space Jellyfish, Robortender, Hobo Monkey, Cat Burglar"]))).find(fam => have(fam)) || $familiar(utils_templateObject14 || (utils_templateObject14 = utils_taggedTemplateLiteral(["Leprechaun"])));
+  return $familiars(utils_templateObject14 || (utils_templateObject14 = utils_taggedTemplateLiteral(["Space Jellyfish, Robortender, Hobo Monkey, Cat Burglar"]))).find(fam => have(fam)) || $familiar(utils_templateObject15 || (utils_templateObject15 = utils_taggedTemplateLiteral(["Leprechaun"])));
 }
 function bestFam(mob) {
-  var fams = $familiars(utils_templateObject15 || (utils_templateObject15 = utils_taggedTemplateLiteral(["Grey Goose, Red-Nosed Snapper, Cookbookbat, Shorter-Order Cook"]))).filter(fam => have(fam)).sort((a, b) => famValue(b, mob) - famValue(a, mob));
+  var fams = $familiars(utils_templateObject16 || (utils_templateObject16 = utils_taggedTemplateLiteral(["Grey Goose, Red-Nosed Snapper, Cookbookbat, Shorter-Order Cook"]))).filter(fam => have(fam)).sort((a, b) => famValue(b, mob) - famValue(a, mob));
   return fams.find(fam => have(fam));
 }
 function canDiet() {
-  return myFullness() < fullnessLimit() || mySpleenUse() < spleenLimit() || myInebriety() < inebrietyLimit() || have($item(utils_templateObject16 || (utils_templateObject16 = utils_taggedTemplateLiteral(["distention pill"])))) && !get("_distentionPillUsed") || have($item(utils_templateObject17 || (utils_templateObject17 = utils_taggedTemplateLiteral(["synthetic dog hair pill"])))) && !get("_syntheticDogHairPillUsed") || have($item(utils_templateObject18 || (utils_templateObject18 = utils_taggedTemplateLiteral(["designer sweatpants"])))) && get("_sweatOutSomeBoozeUsed") < 3 && get("sweat") >= 25 || have($item(utils_templateObject19 || (utils_templateObject19 = utils_taggedTemplateLiteral(["mime army shotglass"])))) && !get("_mimeArmyShotglassUsed") || get("currentMojoFilters") < 3 && mallPrice($item(utils_templateObject20 || (utils_templateObject20 = utils_taggedTemplateLiteral(["mojo filter"])))) + mallPrice($item(utils_templateObject21 || (utils_templateObject21 = utils_taggedTemplateLiteral(["transdermal smoke patch"])))) < 2.5 * get("valueOfAdventure");
+  return myFullness() < fullnessLimit() || mySpleenUse() < spleenLimit() || myInebriety() < inebrietyLimit() || have($item(utils_templateObject17 || (utils_templateObject17 = utils_taggedTemplateLiteral(["distention pill"])))) && !get("_distentionPillUsed") || have($item(utils_templateObject18 || (utils_templateObject18 = utils_taggedTemplateLiteral(["synthetic dog hair pill"])))) && !get("_syntheticDogHairPillUsed") || have($item(utils_templateObject19 || (utils_templateObject19 = utils_taggedTemplateLiteral(["designer sweatpants"])))) && get("_sweatOutSomeBoozeUsed") < 3 && get("sweat") >= 25 || have($item(utils_templateObject20 || (utils_templateObject20 = utils_taggedTemplateLiteral(["mime army shotglass"])))) && !get("_mimeArmyShotglassUsed") || get("currentMojoFilters") < 3 && mallPrice($item(utils_templateObject21 || (utils_templateObject21 = utils_taggedTemplateLiteral(["mojo filter"])))) + mallPrice($item(utils_templateObject22 || (utils_templateObject22 = utils_taggedTemplateLiteral(["transdermal smoke patch"])))) < 2.5 * get("valueOfAdventure");
 }
 function stooperDrunk() {
-  return myInebriety() > inebrietyLimit() || myInebriety() === inebrietyLimit() && myFamiliar() === $familiar(utils_templateObject22 || (utils_templateObject22 = utils_taggedTemplateLiteral(["Stooper"])));
+  return myInebriety() > inebrietyLimit() || myInebriety() === inebrietyLimit() && myFamiliar() === $familiar(utils_templateObject23 || (utils_templateObject23 = utils_taggedTemplateLiteral(["Stooper"])));
 }
 function totallyDrunk() {
-  return have($familiar(utils_templateObject23 || (utils_templateObject23 = utils_taggedTemplateLiteral(["Stooper"])))) && myFamiliar() !== $familiar(utils_templateObject24 || (utils_templateObject24 = utils_taggedTemplateLiteral(["Stooper"]))) ? myInebriety() > inebrietyLimit() + 1 : myInebriety() > inebrietyLimit();
+  return have($familiar(utils_templateObject24 || (utils_templateObject24 = utils_taggedTemplateLiteral(["Stooper"])))) && myFamiliar() !== $familiar(utils_templateObject25 || (utils_templateObject25 = utils_taggedTemplateLiteral(["Stooper"]))) ? myInebriety() > inebrietyLimit() + 1 : myInebriety() > inebrietyLimit();
 }
 function doneAdventuring() {
   return !canDiet() && myAdventures() === 0 || stooperDrunk();
 }
 function backstageItemsDone() {
-  return (have($item(utils_templateObject25 || (utils_templateObject25 = utils_taggedTemplateLiteral(["giant marshmallow"])))) ? 1 : 0) + (have($item(utils_templateObject26 || (utils_templateObject26 = utils_taggedTemplateLiteral(["beer-scented teddy bear"])))) ? 1 : 0) + itemAmount($item(utils_templateObject27 || (utils_templateObject27 = utils_taggedTemplateLiteral(["gin-soaked blotter paper"])))) >= 2 && (have($item(utils_templateObject28 || (utils_templateObject28 = utils_taggedTemplateLiteral(["booze-soaked cherry"])))) ? 1 : 0) + (have($item(utils_templateObject29 || (utils_templateObject29 = utils_taggedTemplateLiteral(["comfy pillow"])))) ? 1 : 0) + itemAmount($item(utils_templateObject30 || (utils_templateObject30 = utils_taggedTemplateLiteral(["sponge cake"])))) >= 2;
+  return (have($item(utils_templateObject26 || (utils_templateObject26 = utils_taggedTemplateLiteral(["giant marshmallow"])))) ? 1 : 0) + (have($item(utils_templateObject27 || (utils_templateObject27 = utils_taggedTemplateLiteral(["beer-scented teddy bear"])))) ? 1 : 0) + itemAmount($item(utils_templateObject28 || (utils_templateObject28 = utils_taggedTemplateLiteral(["gin-soaked blotter paper"])))) >= 2 && (have($item(utils_templateObject29 || (utils_templateObject29 = utils_taggedTemplateLiteral(["booze-soaked cherry"])))) ? 1 : 0) + (have($item(utils_templateObject30 || (utils_templateObject30 = utils_taggedTemplateLiteral(["comfy pillow"])))) ? 1 : 0) + itemAmount($item(utils_templateObject31 || (utils_templateObject31 = utils_taggedTemplateLiteral(["sponge cake"])))) >= 2;
 }
-var gardens = template_string_$items(utils_templateObject31 || (utils_templateObject31 = utils_taggedTemplateLiteral(["packet of pumpkin seeds, Peppermint Pip Packet, packet of dragon's teeth, packet of beer seeds, packet of winter seeds, packet of thanksgarden seeds, packet of tall grass seeds, packet of mushroom spores"])));
+var gardens = template_string_$items(utils_templateObject32 || (utils_templateObject32 = utils_taggedTemplateLiteral(["packet of pumpkin seeds, Peppermint Pip Packet, packet of dragon's teeth, packet of beer seeds, packet of winter seeds, packet of thanksgarden seeds, packet of tall grass seeds, packet of mushroom spores, packet of rock seeds"])));
 function getGarden() {
-  return gardens.find(it => it.name in getCampground()) || $item(utils_templateObject32 || (utils_templateObject32 = utils_taggedTemplateLiteral(["none"])));
+  return gardens.find(it => it.name in getCampground()) || $item(utils_templateObject33 || (utils_templateObject33 = utils_taggedTemplateLiteral(["none"])));
 }
 var banishes;
 function nextUnusedBanishItem() {
-  if (!banishes) banishes = $items(utils_templateObject33 || (utils_templateObject33 = utils_taggedTemplateLiteral(["human musk, tennis ball, Louder Than Bomb, divine champagne popper"]))).sort((a, b) => mallPrice(a) - mallPrice(b)); //sorted from cheapest to most expensive
+  if (!banishes) banishes = $items(utils_templateObject34 || (utils_templateObject34 = utils_taggedTemplateLiteral(["human musk, tennis ball, Louder Than Bomb, divine champagne popper"]))).sort((a, b) => mallPrice(a) - mallPrice(b)); //sorted from cheapest to most expensive
 
-  return banishes.find(it => !getBanishedMonsters().get(it)) || $item(utils_templateObject34 || (utils_templateObject34 = utils_taggedTemplateLiteral(["none"]))); //return the cheapest free banish not currently in use
+  return banishes.find(it => !getBanishedMonsters().get(it)) || $item(utils_templateObject35 || (utils_templateObject35 = utils_taggedTemplateLiteral(["none"]))); //return the cheapest free banish not currently in use
 }
 function chewOrWish(it, ef) {
-  if (mallPrice(it) + mallPrice($item(utils_templateObject35 || (utils_templateObject35 = utils_taggedTemplateLiteral(["mojo filter"])))) < mallPrice($item(utils_templateObject36 || (utils_templateObject36 = utils_taggedTemplateLiteral(["pocket wish"]))))) {
-    if (mySpleenUse() === spleenLimit()) use(1, $item(utils_templateObject37 || (utils_templateObject37 = utils_taggedTemplateLiteral(["mojo filter"]))));
+  if (mallPrice(it) + mallPrice($item(utils_templateObject36 || (utils_templateObject36 = utils_taggedTemplateLiteral(["mojo filter"])))) < mallPrice($item(utils_templateObject37 || (utils_templateObject37 = utils_taggedTemplateLiteral(["pocket wish"]))))) {
+    if (mySpleenUse() === spleenLimit()) use(1, $item(utils_templateObject38 || (utils_templateObject38 = utils_taggedTemplateLiteral(["mojo filter"]))));
     chew(it);
   } else {
-    retrieveItem($item(utils_templateObject38 || (utils_templateObject38 = utils_taggedTemplateLiteral(["pocket wish"]))));
+    retrieveItem($item(utils_templateObject39 || (utils_templateObject39 = utils_taggedTemplateLiteral(["pocket wish"]))));
     cliExecute("genie effect ".concat(ef.name));
   }
-}
-function expectCMC() {
-  return getWorkshed() !== $item(utils_templateObject39 || (utils_templateObject39 = utils_taggedTemplateLiteral(["cold medicine cabinet"]))) && have($item(utils_templateObject40 || (utils_templateObject40 = utils_taggedTemplateLiteral(["cold medicine cabinet"])))) && !get("_workshedItemUsed");
 }
 function isGoodGarboScript(scr) {
   // Returns true if scr includes "garbo", and doesn't include a semicolon
@@ -7648,13 +7657,18 @@ function args_taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.sl
 
 
 
-var args_args = Args.create("goorbo", "Written by frazazel (ign: SketchySolid #422389). This is a full-day script for half-glooping. It aims to be a single-press script that will take you through your Aftercore and Grey You legs, collecting fat loot tokens, getting a Steel Liver, and leveling up to level 13 before running garbo. It chooses a class for you to learn guild skills, and to perm learned skills upon ascension.", {
+var args_args = Args.create("goorbo", "Written by frazazel #422389 (previous ign: SketchySolid). This is a full-day script for glooping. It aims to be a single-press script that will take you through your Aftercore and Grey You legs, collecting fat loot tokens, getting a Steel Liver, and leveling up to level 13 before running garbo. It chooses a class for you to learn guild skills, and to perm learned skills upon ascension.", {
   //alternate-run flags
   version: Args.flag({
     help: "Output script version number and exit.",
     default: false,
     setting: ""
   }),
+  // profits: Args.flag({
+  //   help: "If set, displays current session's profits, then return without taking any actions.",
+  //   default: false,
+  //   setting: "",
+  // }),
   sim: Args.flag({
     help: "If set, see the recommended items and skills, then return without taking any actions.",
     default: false,
@@ -7738,12 +7752,8 @@ var args_args = Args.create("goorbo", "Written by frazazel (ign: SketchySolid #4
     help: "A command to be run at the start of ronin-farming. For best effect, make sure that it stops when your turncount reaches 1000."
   }),
   garboascend: Args.string({
-    help: "The command that will be used to diet and use all your adventures in Day 2 aftercore. If it is detected to be a garbo script call, it will function with voatest and CMC will be installed in last 100 turns. If it is not, then voatest will be ignored, and CMC will be installed prior to running this script.",
+    help: "The command that will be used to diet and use all your adventures in Day 2 aftercore.",
     default: "garbo ascend"
-  }),
-  voatest: Args.boolean({
-    help: "If set, will run your d2 garbo turns just like normal, but will separately track the last 100 turns, to give you an estimate of what your real-world valueOfAdventure is. Divide your total \"VoA Test\" profit by 100 for your VoA estimate. Note that it might show > 100 adventures spent, if garbo equipped the mafia thumb ring, June cleaver, or other adventure gaining equipment. This flag may be ignored if a custom setting of garboascend is used",
-    default: true
   }),
   tip: Args.flag({
     help: "Send all your soap knives to the author. Thanks!",
