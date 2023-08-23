@@ -5,7 +5,6 @@ import {
   Familiar,
   fullnessLimit,
   getCampground,
-  getWorkshed,
   inebrietyLimit,
   Item,
   itemAmount,
@@ -211,14 +210,6 @@ export function chewOrWish(it: Item, ef: Effect): void {
     retrieveItem($item`pocket wish`);
     cliExecute(`genie effect ${ef.name}`);
   }
-}
-
-export function expectCMC() {
-  return (
-    getWorkshed() !== $item`cold medicine cabinet` &&
-    have($item`cold medicine cabinet`) &&
-    !get("_workshedItemUsed")
-  );
 }
 
 export function isGoodGarboScript(scr: string): boolean {

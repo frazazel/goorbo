@@ -68,7 +68,6 @@ import { getCurrentLeg, Leg, Quest } from "./structure";
 import {
   bestFam,
   canDiet,
-  expectCMC,
   getGarden,
   isGoodGarboScript,
   maxBase,
@@ -445,64 +444,18 @@ export function AftercoreQuest(): Quest {
       },
       {
         name: "Garbo",
-        completed: () =>
-          !isGoodGarboScript(args.garboascend) ||
-          stooperDrunk() ||
-          (!canDiet() && myAdventures() <= (expectCMC() ? 100 : 0) + (args.voatest ? 100 : 0)),
-        prepare: () => uneffect($effect`Beaten Up`),
-        do: () => {
-          const adv2keep = (expectCMC() ? 100 : 0) + (args.voatest ? 100 : 0);
-          if (adv2keep > 0) cliExecute(`${args.garboascend} -${adv2keep}`);
-          else cliExecute(`${args.garboascend}`);
-        },
-        post: () => {
-          if (myAdventures() === 0)
-            $effects`Power Ballad of the Arrowsmith, Stevedave's Shanty of Superiority, The Moxious Madrigal, The Magical Mojomuscular Melody, Aloysius' Antiphon of Aptitude, Ur-Kel's Aria of Annoyance`
-              .filter((ef) => have(ef))
-              .forEach((ef) => uneffect(ef));
-        },
-        clear: "all",
-        tracking: "Garbo",
-        limit: { tries: 2 }, //this will run again after installing CMC, by magic
-      },
-      {
-        name: "Garbo VoA Test",
-        completed: () =>
-          !isGoodGarboScript(args.garboascend) ||
-          !args.voatest ||
-          stooperDrunk() ||
-          (!canDiet() && myAdventures() <= (expectCMC() ? 100 : 0)),
-        prepare: () => uneffect($effect`Beaten Up`),
-        do: () => {
-          if (expectCMC()) cliExecute(`${args.garboascend} -100`);
-          else cliExecute(`${args.garboascend}`);
-        },
-        post: () => {
-          args.voatest = false;
-          if (myAdventures() === 0)
-            $effects`Power Ballad of the Arrowsmith, Stevedave's Shanty of Superiority, The Moxious Madrigal, The Magical Mojomuscular Melody, Aloysius' Antiphon of Aptitude, Ur-Kel's Aria of Annoyance`
-              .filter((ef) => have(ef))
-              .forEach((ef) => uneffect(ef));
-        },
-        clear: "all",
-        tracking: "VoA Test",
-      },
-      {
-        name: "Install CMC",
-        completed: () => !expectCMC(),
-        do: () => use($item`cold medicine cabinet`),
-      },
-      {
-        name: "Custom Farm Script", //this should only run if args.garboascend isn't a basic garbo script call
         completed: () => stooperDrunk() || (!canDiet() && myAdventures() === 0),
         prepare: () => uneffect($effect`Beaten Up`),
-        do: () => cliExecute(`${args.garboascend}`),
-        post: () =>
-          $effects`Power Ballad of the Arrowsmith, Stevedave's Shanty of Superiority, The Moxious Madrigal, The Magical Mojomuscular Melody, Aloysius' Antiphon of Aptitude, Ur-Kel's Aria of Annoyance`
-            .filter((ef) => have(ef))
-            .forEach((ef) => uneffect(ef)),
+        do: () => cliExecute(args.garboascend),
+        post: () => {
+          if (myAdventures() === 0)
+            $effects`Power Ballad of the Arrowsmith, Stevedave's Shanty of Superiority, The Moxious Madrigal, The Magical Mojomuscular Melody, Aloysius' Antiphon of Aptitude, Ur-Kel's Aria of Annoyance`
+              .filter((ef) => have(ef))
+              .forEach((ef) => uneffect(ef));
+        },
         clear: "all",
         tracking: "Garbo",
+        limit: { tries: 1 }, //this will run again after installing CMC, by magic
       },
       {
         name: "Stooper",
@@ -583,7 +536,7 @@ export function AftercoreQuest(): Quest {
         ready: () => have($item`Drunkula's wineglass`),
         prepare: () => uneffect($effect`Beaten Up`),
         completed: () => myAdventures() === 0,
-        do: () => cliExecute(args.garboascend),
+        do: () => cliExecute("garbo ascend"),
         post: () =>
           $effects`Power Ballad of the Arrowsmith, Stevedave's Shanty of Superiority, The Moxious Madrigal, The Magical Mojomuscular Melody, Aloysius' Antiphon of Aptitude, Ur-Kel's Aria of Annoyance`
             .filter((ef) => have(ef))

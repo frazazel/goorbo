@@ -141,12 +141,8 @@ export const args = Args.create(
       help: "A command to be run at the start of ronin-farming. For best effect, make sure that it stops when your turncount reaches 1000.",
     }),
     garboascend: Args.string({
-      help: `The command that will be used to diet and use all your adventures in Day 2 aftercore. If it is detected to be a garbo script call, it will function with voatest and CMC will be installed in last 100 turns. If it is not, then voatest will be ignored, and CMC will be installed prior to running this script.`,
+      help: `The command that will be used to diet and use all your adventures in Day 2 aftercore.`,
       default: "garbo ascend",
-    }),
-    voatest: Args.boolean({
-      help: `If set, will run your d2 garbo turns just like normal, but will separately track the last 100 turns, to give you an estimate of what your real-world valueOfAdventure is. Divide your total "VoA Test" profit by 100 for your VoA estimate. Note that it might show > 100 adventures spent, if garbo equipped the mafia thumb ring, June cleaver, or other adventure gaining equipment. This flag may be ignored if a custom setting of garboascend is used`,
-      default: true,
     }),
     tip: Args.flag({
       help: "Send all your soap knives to the author. Thanks!",
