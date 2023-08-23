@@ -4,6 +4,7 @@ import {
   gnomadsAvailable,
   inCasual,
   inHardcore,
+  Item,
   myClass,
   print,
   printHtml,
@@ -23,7 +24,12 @@ export function setClass(property: string, value: Class): void {
 
 export const baseClasses = $classes`Seal Clubber, Turtle Tamer, Pastamancer, Sauceror, Disco Bandit, Accordion Thief`;
 export const gnomeSkills = $skills`Torso Awareness, Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding`;
-const permBlockList = $skills`CLEESH, Chronic Indigestion`;
+const permBlockList = [
+  ...$skills`CLEESH, Chronic Indigestion`,
+  ...Skill.all().filter((sk) =>
+    Item.all().find((it) => it.skill === sk && it.reusable && have(it))
+  ),
+];
 
 export const permTiers = [
   "Tier 0 - All permable non-guild, non-gnome skills (never target these, but perm them if you know them)",
@@ -39,7 +45,7 @@ export const permTiers = [
 
 const permList = [
   //tier 0
-  $skills``.filter(
+  Skill.all().filter(
     (sk) =>
       sk.permable && sk.level === -1 && !permBlockList.includes(sk) && !gnomeSkills.includes(sk)
   ),
