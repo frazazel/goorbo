@@ -25,7 +25,8 @@ export function setClass(property: string, value: Class): void {
 export const baseClasses = $classes`Seal Clubber, Turtle Tamer, Pastamancer, Sauceror, Disco Bandit, Accordion Thief`;
 export const gnomeSkills = $skills`Torso Awareness, Gnefarious Pickpocketing, Powers of Observatiogn, Gnomish Hardigness, Cosmic Ugnderstanding`;
 const permBlockList = [
-  ...$skills`CLEESH, Chronic Indigestion`,
+  ...$skills`CLEESH, Chronic Indigestion, Lightning Bolt`,
+  // Lightning Bolt doesn't play nice, because there are 2 skills with that name. It's also a bad skill.
   ...Skill.all().filter((sk) =>
     Item.all().find((it) => it.skill === sk && it.reusable && have(it))
   ),
