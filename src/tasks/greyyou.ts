@@ -1006,13 +1006,13 @@ export function GyouQuests(): Quest[] {
           name: "Plant Garden",
           ready: () =>
             doneAdventuring() &&
-            !!$items`packet of thanksgarden seeds, Peppermint Pip Packet, packet of winter seeds, packet of beer seeds, packet of pumpkin seeds, packet of dragon's teeth`.find(
+            !!$items`packet of rock seeds, packet of thanksgarden seeds, Peppermint Pip Packet, packet of winter seeds, packet of beer seeds, packet of pumpkin seeds, packet of dragon's teeth`.find(
               (it) => have(it)
             ),
           completed: () => getGarden() !== $item`packet of tall grass seeds`,
           do: () => {
             use(
-              $items`packet of thanksgarden seeds, Peppermint Pip Packet, packet of winter seeds, packet of beer seeds, packet of pumpkin seeds, packet of dragon's teeth`.find(
+              $items`packet of rock seeds, packet of thanksgarden seeds, Peppermint Pip Packet, packet of winter seeds, packet of beer seeds, packet of pumpkin seeds, packet of dragon's teeth`.find(
                 (it) => have(it)
               ) || $item`none`
             );
