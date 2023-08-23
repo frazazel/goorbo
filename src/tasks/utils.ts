@@ -12,6 +12,7 @@ import {
   mallPrice,
   Monster,
   myAdventures,
+  myClass,
   myFamiliar,
   myFullness,
   myInebriety,
@@ -22,6 +23,7 @@ import {
   use,
 } from "kolmafia";
 import {
+  $class,
   $familiar,
   $familiars,
   $item,
@@ -97,7 +99,10 @@ export function maxBase(): string {
 function famValue(fam: Familiar, mob?: Monster) {
   switch (fam) {
     case $familiar`Grey Goose`:
-      return myLevel() < args.targetlevel && $familiar`Grey Goose`.experience < 400 ? 6000 : 0;
+      return (myClass() === $class`Grey Goo` || myLevel() < args.targetlevel) &&
+        $familiar`Grey Goose`.experience < 400
+        ? 6000
+        : 0;
     case $familiar`Red-Nosed Snapper`:
       if (mob && Snapper.getTrackedPhylum() && mob.phylum === Snapper.getTrackedPhylum())
         return (
