@@ -11148,7 +11148,7 @@ function AftercoreQuest() {
       prepare: () => {
         if (!(0,external_kolmafia_namespaceObject.canAdventure)($location(aftercore_templateObject29 || (aftercore_templateObject29 = aftercore_taggedTemplateLiteral(["The Shore, Inc. Travel Agency"]))))) (0,external_kolmafia_namespaceObject.retrieveItem)(template_string_$item(aftercore_templateObject30 || (aftercore_templateObject30 = aftercore_taggedTemplateLiteral(["bitchin' meatcar"]))));
       },
-      do: () => (0,external_kolmafia_namespaceObject.myAdventures)() >= 3 ? $location(aftercore_templateObject31 || (aftercore_templateObject31 = aftercore_taggedTemplateLiteral(["The Shore, Inc. Travel Agency"]))) : $location(aftercore_templateObject32 || (aftercore_templateObject32 = aftercore_taggedTemplateLiteral(["Noob Cave"]))),
+      do: () => (0,external_kolmafia_namespaceObject.adv1)((0,external_kolmafia_namespaceObject.myAdventures)() >= 3 ? $location(aftercore_templateObject31 || (aftercore_templateObject31 = aftercore_taggedTemplateLiteral(["The Shore, Inc. Travel Agency"]))) : $location(aftercore_templateObject32 || (aftercore_templateObject32 = aftercore_taggedTemplateLiteral(["Noob Cave"]))), -1, ""),
       post: () => {
         if ((0,external_kolmafia_namespaceObject.handlingChoice)()) (0,external_kolmafia_namespaceObject.visitUrl)("main.php");
         if (lib_have($effect(aftercore_templateObject33 || (aftercore_templateObject33 = aftercore_taggedTemplateLiteral(["Beaten Up"]))))) uneffect($effect(aftercore_templateObject34 || (aftercore_templateObject34 = aftercore_taggedTemplateLiteral(["Beaten Up"]))));
@@ -11866,7 +11866,7 @@ function GyouQuests() {
         1475: 1 //Hypnotic Master
 
       },
-      do: () => (0,external_kolmafia_namespaceObject.myAdventures)() >= 3 ? $location(greyyou_templateObject34 || (greyyou_templateObject34 = greyyou_taggedTemplateLiteral(["The Shore, Inc. Travel Agency"]))) : $location(greyyou_templateObject35 || (greyyou_templateObject35 = greyyou_taggedTemplateLiteral(["Noob Cave"]))),
+      do: () => (0,external_kolmafia_namespaceObject.adv1)((0,external_kolmafia_namespaceObject.myAdventures)() >= 3 ? $location(greyyou_templateObject34 || (greyyou_templateObject34 = greyyou_taggedTemplateLiteral(["The Shore, Inc. Travel Agency"]))) : $location(greyyou_templateObject35 || (greyyou_templateObject35 = greyyou_taggedTemplateLiteral(["Noob Cave"]))), -1, ""),
       post: () => {
         if ((0,external_kolmafia_namespaceObject.handlingChoice)()) (0,external_kolmafia_namespaceObject.visitUrl)("main.php");
 
@@ -12568,7 +12568,7 @@ function main_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
 
 
 
-var version = "0.6.6";
+var version = "0.6.6.6";
 function main(command) {
   Args.fill(args, command);
 
