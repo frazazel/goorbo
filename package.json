@@ -1,6 +1,6 @@
 {
   "name": "goorbo",
-  "version": "0.6.6",
+  "version": "0.6.6.6",
   "description": "A gloop script that spends farming turns with garbo, and aids with perming skills.",
   "main": "scripts/goorbo/goorbo.js",
   "scripts": {

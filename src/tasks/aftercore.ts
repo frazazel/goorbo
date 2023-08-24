@@ -1,5 +1,6 @@
 import { CombatStrategy } from "grimoire-kolmafia";
 import {
+  adv1,
   availableAmount,
   buy,
   canAdventure,
@@ -213,7 +214,11 @@ export function AftercoreQuest(): Quest {
             retrieveItem($item`bitchin' meatcar`);
         },
         do: () =>
-          myAdventures() >= 3 ? $location`The Shore, Inc. Travel Agency` : $location`Noob Cave`,
+          adv1(
+            myAdventures() >= 3 ? $location`The Shore, Inc. Travel Agency` : $location`Noob Cave`,
+            -1,
+            ""
+          ),
         post: () => {
           if (handlingChoice()) visitUrl("main.php");
           if (have($effect`Beaten Up`)) uneffect($effect`Beaten Up`);
