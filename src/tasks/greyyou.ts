@@ -387,7 +387,7 @@ export function GyouQuests(): Quest[] {
             have($item`fish head`) ||
             have($item`piscatini`) ||
             have($item`drive-by shooting`),
-          outfit: () => {
+          outfit: () => ({
             familiar: get("crystalBallPredictions").includes(
               ":The Copperhead Club:Mob Penguin Capo"
             )
@@ -402,7 +402,7 @@ export function GyouQuests(): Quest[] {
             //   ? { offhand: $item`latte lovers member's mug` }
             //   : {}),
             modifier: `${maxBase()}`,
-          },
+          }),
           prepare: (): void => {
             if (
               myFamiliar() === $familiar`Red-Nosed Snapper` &&
