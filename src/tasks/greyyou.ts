@@ -387,7 +387,7 @@ export function GyouQuests(): Quest[] {
             have($item`fish head`) ||
             have($item`piscatini`) ||
             have($item`drive-by shooting`),
-          outfit: {
+          outfit: () => {
             familiar: get("crystalBallPredictions").includes(
               ":The Copperhead Club:Mob Penguin Capo"
             )
