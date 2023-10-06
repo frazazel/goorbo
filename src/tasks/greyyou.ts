@@ -1044,9 +1044,6 @@ export function GyouQuests(): Quest[] {
             if (have($item`clockwork maid`)) {
               use($item`clockwork maid`);
             }
-            if (have($familiar`Left-Hand Man`) && have($skill`Aug. 13th: Left/Off Hander's Day!`) && !have($familiar`Trick-or-Treating Tot`)) {
-              cliExecute("cast 1 Aug. 13th: Left/Off Hander's Day!");
-            }
           },
           outfit: () => ({
             familiar:
@@ -1055,6 +1052,13 @@ export function GyouQuests(): Quest[] {
               ),
             modifier: `adventures${args.pvp ? ", 0.3 fites" : ""}`,
           }),
+        },
+        {
+          name: "Offhand Remarkable",
+          completed: () => !have($skill`Aug. 13th: Left/Off Hander's Day!`),
+          do: () => {
+            cliExecute("cast 1 Aug. 13th: Left/Off Hander's Day!");
+          },
         },
         {
           name: "Summon Soap Knife",
