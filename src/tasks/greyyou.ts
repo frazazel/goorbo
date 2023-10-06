@@ -1054,6 +1054,13 @@ export function GyouQuests(): Quest[] {
           }),
         },
         {
+          name: "Offhand Remarkable",
+          completed: () => !have($skill`Aug. 13th: Left/Off Hander's Day!`),
+          do: () => {
+            cliExecute("cast 1 Aug. 13th: Left/Off Hander's Day!");
+          },
+        },
+        {
           name: "Summon Soap Knife",
           completed: () => !have($skill`That's Not a Knife`) || get("_discoKnife"),
           prepare: () => putCloset(itemAmount($item`soap knife`), $item`soap knife`),
