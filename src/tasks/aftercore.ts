@@ -1,9 +1,7 @@
 import { CombatStrategy } from "grimoire-kolmafia";
 import {
-  adv1,
   availableAmount,
   buy,
-  canAdventure,
   cliExecute,
   closetAmount,
   getCampground,
@@ -198,7 +196,6 @@ export function AftercoreQuest(): Quest {
         completed: () =>
           !have($item`June cleaver`) || get("_juneCleaverFightsLeft") > 0 || myAdventures() === 0,
         choices: {
-          793: 4, //The Shore -> Gift Shop
           1467: 3, //Poetic Justice
           1468: () => (get("_juneCleaverSkips") < 5 ? 4 : 2), //Aunts not Ants
           1469: 3, //Beware of Aligator
@@ -209,16 +206,7 @@ export function AftercoreQuest(): Quest {
           1474: () => (get("_juneCleaverSkips") < 5 ? 4 : 2), //Delicious Sprouts
           1475: 1, //Hypnotic Master
         },
-        prepare: () => {
-          if (!canAdventure($location`The Shore, Inc. Travel Agency`))
-            retrieveItem($item`bitchin' meatcar`);
-        },
-        do: () =>
-          adv1(
-            myAdventures() >= 3 ? $location`The Shore, Inc. Travel Agency` : $location`Noob Cave`,
-            -1,
-            ""
-          ),
+        do: $location`Noob Cave`,
         post: () => {
           if (handlingChoice()) visitUrl("main.php");
           if (have($effect`Beaten Up`)) uneffect($effect`Beaten Up`);
