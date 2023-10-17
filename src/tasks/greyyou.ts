@@ -1056,7 +1056,7 @@ export function GyouQuests(): Quest[] {
         },
         {
           name: "Offhand Remarkable",
-          completed: () => have($effect`Offhand Remarkable`) || get("_aug13Cast"),
+          completed: () => !have($item`August Scepter`) || have($effect`Offhand Remarkable`) || get("_aug13Cast", false),
           do: () => {
             cliExecute("cast 1 Aug. 13th: Left/Off Hander's Day!");
           },
