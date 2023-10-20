@@ -1029,7 +1029,8 @@ export function GyouQuests(): Quest[] {
         {
           name: "Offhand Remarkable",
           // eslint-disable-next-line libram/verify-constants
-          completed: () => !have($skill`Aug. 13th: Left/Off Hander's Day!`),
+          ready: () => have($item`August Scepter`),
+          completed: () => !have($skill`Aug. 13th: Left/Off Hander's Day!`) || have($effect`Offhand Remarkable`) || get("_aug13Cast", false),
           do: () =>
             // eslint-disable-next-line libram/verify-constants
             useSkill($skill`Aug. 13th: Left/Off Hander's Day!`),
@@ -1053,14 +1054,6 @@ export function GyouQuests(): Quest[] {
               ),
             modifier: `adventures${args.pvp ? ", 0.3 fites" : ""}`,
           }),
-        },
-        {
-          name: "Offhand Remarkable",
-          completed: () => !have($item`August Scepter`) || have($effect`Offhand Remarkable`) || get("_aug13Cast", false),
-          do: () => {
-            cliExecute("cast 1 Aug. 13th: Left/Off Hander's Day!");
-          },
-          limit: { tries: 1 },
         },
         {
           name: "Summon Soap Knife",
