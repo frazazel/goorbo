@@ -1,3 +1,4 @@
+import "array-flat-polyfill";
 import {
   Class,
   getPermedSkills,
