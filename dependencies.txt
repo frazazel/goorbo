@@ -1,7 +1,7 @@
 github Ezandora/Gain Release
 github Loathing-Associates-Scripting-Society/garbage-collector release
 github Kasekopf/loop-casual release
-https://github.com/soolar/CONSUME.ash/trunk/RELEASE/
+github soolar/CONSUME.ash
 github Loathing-Associates-Scripting-Society/UberPvPOptimizer
 github Loathing-Associates-Scripting-Society/combo release
 github frazazel/levelup release
